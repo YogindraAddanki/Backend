@@ -23,7 +23,7 @@ namespace CrudOperationInNetCore.Repositories
 
         public  Brand DeleteBrand(int id)
         {
-            var b = _dbContext.Brands.Where(c => c.Id == id);
+            var b = _dbContext.Brands.Where(c => c.Id == id).FirstOrDefault();
 
             _dbContext.Brands.Remove((Brand)b);
 
@@ -36,7 +36,7 @@ namespace CrudOperationInNetCore.Repositories
 
         public Brand GetBrandById(int id)
         {
-            var b = _dbContext.Brands.Where(c => c.Id == id);
+            var b = _dbContext.Brands.Where(c => c.Id == id).FirstOrDefault();
 
             return (Brand)b;
         }

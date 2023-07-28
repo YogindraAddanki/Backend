@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CrudOperationInNetCore.Migrations
 {
     [DbContext(typeof(BrandContext))]
-    [Migration("20230726153017_.")]
+    [Migration("20230728190946_..")]
     partial class _
     {
         /// <inheritdoc />
@@ -54,7 +54,7 @@ namespace CrudOperationInNetCore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Brand")
+                    b.Property<int>("Brandid")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -63,20 +63,7 @@ namespace CrudOperationInNetCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Brand");
-
                     b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("CrudOperationInNetCore.Models.Order", b =>
-                {
-                    b.HasOne("CrudOperationInNetCore.Models.Brand", "Brandid")
-                        .WithMany()
-                        .HasForeignKey("Brand")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Brandid");
                 });
 #pragma warning restore 612, 618
         }

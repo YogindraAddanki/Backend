@@ -5,9 +5,9 @@ namespace CrudOperationInNetCore.Interfaces
     public interface IOrderRepository
     {
 
-        IEnumerable<Order> GetOrders(Order order);
+        Order GetOrderById(int id);
 
-        Order GetOrder(int id);
+        IEnumerable<Order> GetAllOrders();
 
         Order PostOrder(Order order);   
 

@@ -2,9 +2,7 @@
 using CrudOperationInNetCore.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Writers;
-
-
-
+using CrudOperationInNetCore.Interfaces;
 
 namespace CrudOperationInNetCore.Controllers
 {
@@ -12,23 +10,28 @@ namespace CrudOperationInNetCore.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        private readonly BrandContext _dbContext;
+       
+        private readonly IOrderRepository _orderRepository;
 
-        public OrderController(BrandContext dbContext)
+        public OrderController(IOrderRepository orderRepository)
         {
-            _dbContext = dbContext;
+            _orderRepository = orderRepository;
         }
+
+        
 
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
         {
+            Array array = (Array)_orderRepository.GetAllOrders();
 
-            if (_dbContext.Orders == null)
+            if (array.Length == 0)
             {
                 return NotFound();
             }
-            return await _dbContext.Orders.ToArrayAsync();
+            return Ok(array);
+
         }
 
 
@@ -36,11 +39,8 @@ namespace CrudOperationInNetCore.Controllers
         public async Task<ActionResult<Order>> GetOrder(int id)
         {
 
-            if (_dbContext.Orders == null)
-            {
-                return NotFound();
-            }
-            var order = await _dbContext.Orders.FindAsync(id);
+            Order order = _orderRepository.GetOrderById(id);
+            
             if (order == null)
             {
                 return NotFound();
@@ -54,10 +54,9 @@ namespace CrudOperationInNetCore.Controllers
         [HttpPost]
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
-            _dbContext.Orders.Add(order);
-            await _dbContext.SaveChangesAsync();
+            Order o = _orderRepository.PostOrder(order);
 
-            return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order);
+            return o;
 
 
         }

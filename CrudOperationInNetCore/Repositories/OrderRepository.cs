@@ -1,8 +1,7 @@
 ﻿using CrudOperationInNetCore.Interfaces;
 using CrudOperationInNetCore.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.OpenApi.Writers;
+
 
 namespace CrudOperationInNetCore.Repositories
 {
@@ -22,12 +21,12 @@ namespace CrudOperationInNetCore.Repositories
             return _dbContext.Orders.ToArray();
         }
 
-        public Order GetOrderById(int id)
+        public Order? GetOrderById(int id)
         {
            
                 var o = _dbContext.Orders.Where(c => c.Id == id).FirstOrDefault();
 
-                return (Order)o;
+                return o;
             
         }
 
@@ -42,6 +41,48 @@ namespace CrudOperationInNetCore.Repositories
             return order;
         }
 
+        public Order? DeleteOrder(int id)
+        {
+
+            var o = _dbContext.Orders.Where(x => x.Id == id).FirstOrDefault();
+
+            if (o != null)
+            {
+
+                _dbContext.Remove(o);
+
+                _dbContext.SaveChanges();
+            }
+
+         
+
+            return o;
+
+        }
+
+        public Order? PutOrder(int id,Order order)
+        {
+            var o = _dbContext.Orders.Where(x => x.Id == id).FirstOrDefault();
+
+            if(o != null)
+            {
+                o.Name = order.Name;
+
+                o.BrandId = order.BrandId;
+
+                _dbContext.SaveChanges();
+
+                return o;
+
+            }
+
+            return null;
+
+
+
+
+
+        }
    
     }
 }

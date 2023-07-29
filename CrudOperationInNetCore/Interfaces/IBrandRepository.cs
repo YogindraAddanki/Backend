@@ -7,15 +7,15 @@ namespace CrudOperationInNetCore.Interfaces
     {
         IEnumerable<Brand> GetBrands();
 
-        Brand GetBrandById(int id);
+        Brand? GetBrandById(int id);
 
         Brand PostBrand(Brand brand);
 
-        Brand PutBrand(int id, Brand brand);
+        Brand? PutBrand(int id, Brand brand);
 
         bool BrandAvailable(int id);
 
-        Brand DeleteBrand(int id);
+        Brand? DeleteBrand(int id);
 
     }
 }

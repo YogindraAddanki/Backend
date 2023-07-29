@@ -7,10 +7,12 @@ namespace CrudOperationInNetCore.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        [ForeignKey("Brand")]
-        public int Brand {  get; set; }
+        public int BrandId { get; set; }
+
+        [ForeignKey("BrandId")]
+        public Brand? Brand {  get; set; }
 
         
 

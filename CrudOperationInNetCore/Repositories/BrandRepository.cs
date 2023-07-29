@@ -1,8 +1,7 @@
 ﻿using CrudOperationInNetCore.Interfaces;
 using CrudOperationInNetCore.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.OpenApi.Writers;
+
 
 namespace CrudOperationInNetCore.Repositories
 {
@@ -21,24 +20,24 @@ namespace CrudOperationInNetCore.Repositories
 
         }
 
-        public  Brand DeleteBrand(int id)
+        public  Brand? DeleteBrand(int id)
         {
             var b = _dbContext.Brands.Where(c => c.Id == id).FirstOrDefault();
 
-            _dbContext.Brands.Remove((Brand)b);
+            _dbContext.Brands.Remove(b);
 
             _dbContext.SaveChanges();
 
 
-            return (Brand)b;
+            return b;
 
         }
 
-        public Brand GetBrandById(int id)
+        public Brand? GetBrandById(int id)
         {
             var b = _dbContext.Brands.Where(c => c.Id == id).FirstOrDefault();
 
-            return (Brand)b;
+            return b;
         }
 
         public IEnumerable<Brand> GetBrands()
@@ -57,27 +56,30 @@ namespace CrudOperationInNetCore.Repositories
 
         }
 
-        public Brand PutBrand(int id,Brand brand)
+        public Brand? PutBrand(int id,Brand brand)
         {
-             _dbContext.Entry(brand).State = EntityState.Modified;
 
-            try
+             var b = _dbContext.Brands.Where(c => c.Id ==id).FirstOrDefault();
+
+             if (b!=null)
             {
+
+
+                b.Name = brand.Name;
+
+                b.Category = brand.Category;
+
+                b.IsActive = brand.IsActive;
+
                 _dbContext.SaveChanges();
+
+                return b;
+
+
             }
 
-            catch (DbUpdateConcurrencyException)
-            {
+            return null;
 
-                if (!BrandAvailable(id))
-                {
-                    return null;
-                }
-                else
-                    throw;
-            }
-
-            return brand;
         }
     }
 }

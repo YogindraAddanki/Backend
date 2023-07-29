@@ -10,7 +10,7 @@ namespace CrudOperationInNetCore.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-       
+
         private readonly IOrderRepository _orderRepository;
 
         public OrderController(IOrderRepository orderRepository)
@@ -18,11 +18,11 @@ namespace CrudOperationInNetCore.Controllers
             _orderRepository = orderRepository;
         }
 
-        
+
 
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
+        public ActionResult<IEnumerable<Order>> GetOrders()
         {
             Array array = (Array)_orderRepository.GetAllOrders();
 
@@ -36,11 +36,11 @@ namespace CrudOperationInNetCore.Controllers
 
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Order>> GetOrder(int id)
+        public ActionResult<Order> GetOrder(int id)
         {
 
-            Order order = _orderRepository.GetOrderById(id);
-            
+            Order? order = _orderRepository.GetOrderById(id);
+
             if (order == null)
             {
                 return NotFound();
@@ -52,12 +52,42 @@ namespace CrudOperationInNetCore.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<Order>> PostOrder(Order order)
+        public ActionResult<Order> PostOrder(Order order)
         {
             Order o = _orderRepository.PostOrder(order);
 
             return o;
 
+
+        }
+
+        [HttpDelete("{id}")]
+
+        public ActionResult<Order> DeleteOrder(int id)
+        {
+
+            var order = _orderRepository.DeleteOrder(id);
+
+            if (order == null)
+                return NotFound();
+
+            return Ok(order);
+
+
+        }
+
+
+        [HttpPut]
+
+        public ActionResult<Order> PutOrder(int id, Order order)
+        {
+
+            var ordercreated = _orderRepository.PutOrder(id, order);
+
+            if (ordercreated == null)
+                return NotFound();
+
+            return ordercreated;
 
         }
 

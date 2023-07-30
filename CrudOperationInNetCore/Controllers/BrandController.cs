@@ -27,7 +27,7 @@ namespace CrudOperationInNetCore.Controllers
         public ActionResult<IEnumerable<Brand>> GetBrands()
         {
 
-            Array array = (Array)_brandRepository.GetBrands();
+            Array array = _brandRepository.GetBrands().ToArray();
 
             if (array.Length == 0)
             {

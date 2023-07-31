@@ -12,6 +12,8 @@ namespace CrudOperationInNetCore.Models
 
         public ICollection<Order>? Orders { get; set; }
 
+        public Customer? Customer { get; set; }
+
 
 
     }

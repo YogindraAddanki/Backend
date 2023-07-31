@@ -1,5 +1,5 @@
+using CrudOperationInNetCore.Context;
 using CrudOperationInNetCore.Interfaces;
-using CrudOperationInNetCore.Models;
 using CrudOperationInNetCore.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IBrandRepository, BrandRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -159,3 +159,4 @@ C:\Users\asaik\source\repos\CrudOperationInNetCore\CroudOperationInNetCore.Tests
 C:\Users\asaik\source\repos\CrudOperationInNetCore\CroudOperationInNetCore.Tests\obj\Debug\net6.0\CroudOperationInNetCore.Tests.pdb
 C:\Users\asaik\source\repos\CrudOperationInNetCore\CroudOperationInNetCore.Tests\obj\Debug\net6.0\CroudOperationInNetCore.Tests.genruntimeconfig.cache
 C:\Users\asaik\source\repos\CrudOperationInNetCore\CroudOperationInNetCore.Tests\obj\Debug\net6.0\ref\CroudOperationInNetCore.Tests.dll
+C:\Users\asaik\source\repos\CrudOperationInNetCore\CroudOperationInNetCore.Tests\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll

@@ -14,6 +14,8 @@ namespace CrudOperationInNetCore.Models
         [ForeignKey("BrandId")]
         public Brand? Brand {  get; set; }
 
+        public Customer? Customer { get; set; }
+
         
 
 

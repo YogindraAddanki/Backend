@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wA4Pr/0XnZ5DH3dZa/2ZaWqVMRSxFxbBkhvSBR/EA0RKjk6i/KtB/lP43rWeW7smw9YpxMaJO2zbxlTMVTci2Q==",
+  "dgSpecHash": "j7XryBhYYzSKiKWmDDJWlhkMpq5NhDThnUS0Jtt/N15+QMhJP4hw+HWbe3aEIyJFF/Du+jfo/5TFn9WrDcRqlA==",
   "success": true,
   "projectFilePath": "C:\\Users\\asaik\\source\\repos\\CrudOperationInNetCore\\CroudOperationInNetCore.Tests\\CroudOperationInNetCore.Tests.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\asaik\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\asaik\\.nuget\\packages\\fakeiteasy\\7.4.0\\fakeiteasy.7.4.0.nupkg.sha512",
     "C:\\Users\\asaik\\.nuget\\packages\\fluentassertions\\6.11.0\\fluentassertions.6.11.0.nupkg.sha512",
+    "C:\\Users\\asaik\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.21\\microsoft.aspnetcore.authentication.jwtbearer.6.0.21.nupkg.sha512",
     "C:\\Users\\asaik\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\asaik\\.nuget\\packages\\microsoft.codecoverage\\17.5.0\\microsoft.codecoverage.17.5.0.nupkg.sha512",
     "C:\\Users\\asaik\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -3,11 +3,13 @@ using CrudOperationInNetCore.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Writers;
 using CrudOperationInNetCore.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CrudOperationInNetCore.Controllers
 {
     [Route("api/[Controller]")]
     [ApiController]
+    [Authorize]
     public class OrderController : ControllerBase
     {
 

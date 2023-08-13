@@ -1,5 +1,6 @@
 ﻿using CrudOperationInNetCore.Interfaces;
 using CrudOperationInNetCore.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrudOperationInNetCore.Controllers
@@ -8,6 +9,7 @@ namespace CrudOperationInNetCore.Controllers
 
         [Route("api/Coustmer")]
         [ApiController]
+        [Authorize]
         public class CustomerController : ControllerBase
         {
 

@@ -1,5 +1,6 @@
 ﻿using CrudOperationInNetCore.Interfaces;
 using CrudOperationInNetCore.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Writers;
@@ -10,6 +11,7 @@ namespace CrudOperationInNetCore.Controllers
     
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class BrandController : ControllerBase
     {
     
@@ -22,7 +24,7 @@ namespace CrudOperationInNetCore.Controllers
         }
 
 
-
+        
         [HttpGet]
         public ActionResult<IEnumerable<Brand>> GetBrands()
         {
